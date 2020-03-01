@@ -1,13 +1,14 @@
-import requests
+"""
+Fichier main du script d'automatisation de mise en production de site Django
+"""
+import shutil
 
-parameters = {
-    "op"
-}
+chaine = "DEBUG"
 
-response = requests.post('https://IPFIREWALL/api/?', params=parameters)
+shutil.copy("../locktopus/web_project/settings.py", "./settings.py")
 
-if response:
-    print('Request is successful.')
-    print(response)
-else:
-    print('Request returned an error.')
+fichier = open("./settings.py","r")
+for ligne in fichier:
+    if chaine in ligne:
+        print(ligne)
+fichier.close()
