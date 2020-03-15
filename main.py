@@ -1,14 +1,28 @@
 """
-Fichier main du script d'automatisation de mise en production de site Django
+Main file of AutoAdmin project
 """
-import shutil
 
-chaine = "DEBUG"
+import github_update
+import settings_update
 
-shutil.copy("../locktopus/web_project/settings.py", "./settings.py")
+def main():
+    error = 0
 
-fichier = open("./settings.py","r")
-for ligne in fichier:
-    if chaine in ligne:
-        print(ligne)
-fichier.close()
+    print("\nLaunching script ...")
+
+    choose_command =  input("\nDo you need to clone or update your repo from github ? (y/n) : ")
+    choose_command = choose_command.lower()
+    if choose_command == "y":
+        error = github_update.main()
+        if error != 0:
+            main()
+        print("\nUpdating settings.py to production standards ...")
+    elif choose_command == "n":
+        print("\nUpdating settings.py to production standards ...")
+    else:
+        print("\nNot a valid command!")
+        print("Use (y/n) or 'quit' if you want to start again.")
+        main()
+
+    settings_update.main()
+main()
