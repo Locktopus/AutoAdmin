@@ -4,6 +4,7 @@ import lvar
 import os
 
 def main():
+    print("Launched !")
 
     fin = open(lvar.DEVELOPMENT_SETTINGS_FILE_PATH, "rt")
     fout = open("./settings.py", "wt")

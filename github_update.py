@@ -15,23 +15,23 @@ def clone():
 
     subprocess.Popen(['git', 'clone', "https://github.com/" + __user__ + "/" + __repo__ + ".git"])
 
-def main():
+def main(noise):
     print("\nIs your project clone already here ?")
 
-    options = input("\n(y/n/quit) : ")
+    options = input("\n(y/n) : ")
     options = options.lower()
 
     if options == "y":
         run("pull")
-        print("YES")
-        return 0
+        if noise in (1, 2):
+            print("A git pull have been performed")
+        return
     elif options == "n":
-        print("NO")
-        return 0
-    elif options == "quit":
-        print("QUIT")
-        return 1
+        clone()
+        if noise in (1, 2):
+            print("A git clone have been performed")
+        return
     else:
         print("\nNot a valid command!")
-        print("Use (y/n) or 'quit' if you want to start again.")
-        main()
+        print("Use yes or no (y/n)")
+        main(noise)

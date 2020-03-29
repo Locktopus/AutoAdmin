@@ -1,0 +1,15 @@
+usage: AutoAdmin.py [-h] [-g] [-l LOCAL] [-gl] [-v | -q] path
+
+deploy Django application on webserver
+
+positional arguments:
+  path                  the path for root of the project (where it should be deployed)
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -g, --github          launch the github module
+  -l LOCAL, --local LOCAL
+                        use a local variable file (you can get a copy with '-gl')
+  -gl, --getlocal       get a copy of the local variable file
+  -v, --verbose
+  -q, --quiet
