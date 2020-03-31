@@ -1,14 +1,17 @@
 """
-Main file of AutoAdmin project
+Main file of AutoAdmin project.
+Here is the parser which redirect with good options to the other modules.
 """
 
 import argparse
+import set_func
+import use_func
 
-def settings(args):
-    print(args.getlocal)
+def set_f(args):
+    set_func.main(args)
 
-def using(args):
-    print(args.path)
+def use_f(args):
+    use_func.main(args)
 
 def main():
     #parser description
@@ -28,7 +31,7 @@ def main():
     noise_group = parser_set.add_mutually_exclusive_group()
     noise_group.add_argument("-v", "--verbose", action="store_true", help="increase output verbosity")
     noise_group.add_argument("-q", "--quiet", action="store_true", help="decrease output verbosity")
-    parser_set.set_defaults(func=settings)
+    parser_set.set_defaults(func=set_f)
 
     #parser for the 'use' command
     parser_use = subparsers.add_parser(
@@ -39,7 +42,7 @@ def main():
     noise_group = parser_use.add_mutually_exclusive_group()
     noise_group.add_argument("-v", "--verbose", action="store_true", help="increase output verbosity")
     noise_group.add_argument("-q", "--quiet", action="store_true", help="decrease output verbosity")
-    parser_use.set_defaults(func=using)
+    parser_use.set_defaults(func=use_f)
 
     args = parser.parse_args()
     args.func(args)
