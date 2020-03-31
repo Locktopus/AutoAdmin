@@ -1,15 +1,40 @@
-usage: AutoAdmin.py [-h] [-g] [-l LOCAL] [-gl] [-v | -q] path
+usage: AutoAdmin.py [-h] {set,use} ...
 
-deploy Django application on webserver
+Deploy a Django application on a webserver. Start by setting the script with the 'set' option.Then you can use the 'use' option to make it work.
 
 positional arguments:
-  path                  the path for root of the project (where it should be deployed)
+  {set,use}
+
+optional arguments:
+  -h, --help  show this help message and exit
+
+If you have any questions about the script, feel free to contact a Github contributor of the project.
+
+_____
+
+usage: AutoAdmin.py set [-h] [-gl] [-gh] [-v | -q]
+
+Set mode, required before using the script.
+
+optional arguments:
+  -h, --help       show this help message and exit
+  -gl, --getlocal  get a copy of the local variable file that you can fill
+  -gh, --github    launch the github module
+  -v, --verbose    increase output verbosity
+  -q, --quiet      decrease output verbosity
+
+If you have any questions about the script, feel free to contact a Github contributor of the project.
+
+_____
+
+usage: AutoAdmin.py use [-h] [-p PATH] [-v | -q]
+
+Use mode, be sure you have used the 'set' mode before.
 
 optional arguments:
   -h, --help            show this help message and exit
-  -g, --github          launch the github module
-  -l LOCAL, --local LOCAL
-                        use a local variable file (you can get a copy with '-gl')
-  -gl, --getlocal       get a copy of the local variable file
-  -v, --verbose
-  -q, --quiet
+  -p PATH, --path PATH  the path for root of the project (where it should be deployed)
+  -v, --verbose         increase output verbosity
+  -q, --quiet           decrease output verbosity
+
+If you have any questions about the script, feel free to contact a Github contributor of the project.
