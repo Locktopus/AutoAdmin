@@ -19,10 +19,10 @@ At any moment, you can use the "help" argument that will show you the usage.
 
 ## Built with
 
-[Python](https://www.python.org/) - Python language
-[VSCode](https://code.visualstudio.com/) - IDE
-[Django](https://www.djangoproject.com/) - Django framework
+* [Python](https://www.python.org/) - Python language
+* [VSCode](https://code.visualstudio.com/) - IDE
+* [Django](https://www.djangoproject.com/) - Django framework
 
 ## License
 
-This project is under license ``MIT License`` - see the file [LICENSE.md](LICENSE.md) for more information.
+This project is under license ``MIT License`` - see the file [LICENSE](LICENSE) for more information.
