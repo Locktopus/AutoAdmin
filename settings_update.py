@@ -1,12 +1,10 @@
 #Modifying the "settings.py" file to production mode :
 
-import lvar
+import custom_lvar
 import os
 
 def main():
-    print("Launched !")
-
-    fin = open(lvar.DEVELOPMENT_SETTINGS_FILE_PATH, "rt")
+    fin = open(custom_lvar.DEVELOPMENT_SETTINGS_FILE_PATH, "rt")
     fout = open("./settings.py", "wt")
 
     for line in fin:
@@ -15,7 +13,7 @@ def main():
         elif "SECRET_KEY" in line:
             fout.write("SECRET_KEY = os.environ['SECRET_KEY']")
         elif "ALLOWED_HOSTS" in line:
-            fout.write("ALLOWED_HOSTS = ['" + lvar.DOMAIN + "']")
+            fout.write("ALLOWED_HOSTS = ['" + custom_lvar.DOMAIN + "']")
         else:
             fout.write(line)
         

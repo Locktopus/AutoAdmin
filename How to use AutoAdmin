@@ -1,3 +1,5 @@
+USAGE :
+
 usage: AutoAdmin.py [-h] {set,use} ...
 
 Deploy a Django application on a webserver. Start by setting the script with the 'set' option.Then you can use the 'use' option to make it work.
@@ -38,3 +40,11 @@ optional arguments:
   -q, --quiet           decrease output verbosity
 
 If you have any questions about the script, feel free to contact a Github contributor of the project.
+
+Code explanation :
+
+The code is splitted in 3.
+First, you have the main function "AutoAdmin.py", which contain the parsing function and redirect user to the other functions.
+The you have the "use" function and the "set" function, which contain different module that everyone can add easily by adding it in the parsing portion
+of the code and then in a module file that will be used by either "use" or "set" function.
+Simple as that !
